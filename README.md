@@ -1,11 +1,11 @@
 ### cryptint
 
 
-**`cryptint`** is a PostgreSQL extension providing encryption of 32-bit integers (int, int4) with Skip32 and 64-bit integers (bigint, int8) with XTEA.
+**`cryptint`** is a PostgreSQL extension providing SKIP encryption for 32-bit integers, and XTEA encryption for 64-bit integers.
 
 ### SKIP32
-SKIP32 is a block cipher with 24 rounds based on Skipjack, that encrypts 32-bit values with a 80-bit key.
-See https://en.wikipedia.org/wiki/Skipjack_(cipher)
+SKIP32 is a block cipher with 24 rounds based on Skipjack, that encrypts 32-bit values with a 80-bit key.  
+See https://en.wikipedia.org/wiki/Skipjack_(cipher)  
 Be warned that this encryption algorithm was developed in the 80's and is considered extremely weak by today's standard.
 
 `skip32_encrypt(int value, bytea key) returns int`
