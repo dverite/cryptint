@@ -1,0 +1,40 @@
+{
+    "name": "cryptint",
+    "abstract": "Extension implementing Skip32 and XTEA encryption for integers",
+    "version": "1.0.0",
+    "maintainer": "Daniel Vérité <daniel@manitou-mail.org>",
+    "license": "postgresql",
+
+    "prereqs": {
+        "runtime": {
+            "requires": {
+                "PostgreSQL": "9.1.0"
+            }
+        }
+    },
+    "provides": {
+        "cryptint": {
+            "file": "sql/cryptint--1.0.0.sql",
+            "version": "1.0.0",
+            "abstract": "Extension implementing Skip32 and XTEA encryption for integers"
+        }
+    },
+    "resources": {
+        "bugtracker": {
+            "web": "https://github.com/dverite/cryptint/issues"
+        },
+        "repository": {
+            "url": "git://github.com/dverite/cryptint.git" ,
+            "web": "https://github.com/dverite/cryptint",
+            "type": "git"
+        }
+    },    
+    "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+    },
+    "tags": [
+        "crypto",
+	"sequence"
+    ]
+}
