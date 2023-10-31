@@ -63,9 +63,14 @@ xtea_process(int64 value, bytea* in_key_bytea, int encdec)
 	bufval[0] = (uint32_t)(value >> 32);
 	bufval[1] = (uint32_t)(value & 0xffffffff);
 
+#if PG_VERSION_NUM < 160000
 	/* Interpret in_key_bytea as if it contained 4 big-endian uint32.
 	   The choice of big over little-endian is arbitrary */
 	in_key = (unsigned char*)VARDATA_ANY(in_key_bytea);
+#endif
+#if PG_VERSION_NUM >= 160000
+	in_key = (void *)VARDATA_ANY(in_key_bytea);
+#endif
 	for (i=0; i < 4; i++)
 	{
 		bufkey[i] =	(uint32_t)in_key[0] << 24 |
@@ -111,7 +116,12 @@ skip32_decrypt(PG_FUNCTION_ARGS)
 static int32
 skip32_process(int32 value, bytea* in_key_bytea, int encdec)
 {
+#if PG_VERSION_NUM < 160000
 	unsigned char* in_key = (unsigned char*)VARDATA_ANY(in_key_bytea);
+#endif
+#if PG_VERSION_NUM >= 160000
+	unsigned char* in_key = (void *)VARDATA_ANY(in_key_bytea);
+#endif
 	unsigned int len = VARSIZE_ANY_EXHDR(in_key_bytea);
 	unsigned char bufval[4];
 	int32 res;
