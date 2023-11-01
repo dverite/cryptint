@@ -1,5 +1,5 @@
 EXTENSION  = cryptint
-EXTVERSION = 1.0.0
+EXTVERSION = 1.0.1
 
 PG_CONFIG = pg_config
 

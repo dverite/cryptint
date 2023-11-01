@@ -1,7 +1,7 @@
 {
     "name": "cryptint",
     "abstract": "Extension implementing Skip32 and XTEA encryption for integers",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "maintainer": "Daniel Vérité <daniel@manitou-mail.org>",
     "license": "postgresql",
 
